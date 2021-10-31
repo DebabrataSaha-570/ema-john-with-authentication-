@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import initializeAuthentication from '../Firebase/firebase.init';
+initializeAuthentication()
 const useFirebase = () => {
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
@@ -16,6 +18,7 @@ const useFirebase = () => {
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorMessage)
             });
     }
     const logOut = () => {
@@ -25,6 +28,7 @@ const useFirebase = () => {
             console.log(error)
         });
     }
+    // observe whether user auth state changed or not 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {

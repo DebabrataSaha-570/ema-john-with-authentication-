@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 import './Login.css'
 import useFirebase from '../../hooks/useFirebase'
 import useAuth from '../../Context/UseAuth'
+import { useLocation } from 'react-router-dom'
 const Login = () => {
     // const { googleSignIn, logOut, user, error } = useFirebase()
     const { googleSignIn } = useAuth()
+    const location = useLocation();
+    console.log('came from ', location.state?.from)
     return (
         <div className="login-form">
             <div>

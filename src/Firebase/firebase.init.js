@@ -21,4 +21,9 @@ Step-2:
 2. Create Register component .
 3. Create Route For login and register
 
+Step-3:
+1. set up sign in method
+2. set up sign out method
+3. User state
+4. special observer
 */
